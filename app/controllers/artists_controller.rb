@@ -8,8 +8,12 @@ class ArtistsController < ApplicationController
   end
 
   def new
-    raise params.inspect
-    @artist = Artist.new
+    p = Preference.last 
+    if p.allow_create_artists == true 
+      @artist = Artist.new
+    else 
+      redirect_to artists_path
+    end
   end
 
   def create
