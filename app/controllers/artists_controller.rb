@@ -8,6 +8,7 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    raise params.inspect
     @artist = Artist.new
   end
 
